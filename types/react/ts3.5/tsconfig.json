@@ -10,21 +10,21 @@
         "test/experimental.tsx"
     ],
     "compilerOptions": {
-        "module": "commonjs",
+        "baseUrl": "../../",
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "preserve",
         "lib": [
             "es6"
         ],
+        "module": "commonjs",
         "noImplicitAny": true,
-        "noImplicitThis": false,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
-        "types": [],
+        "noImplicitThis": true,
         "noEmit": true,
-        "forceConsistentCasingInFileNames": true,
-        "jsx": "preserve"
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "typeRoots": [
+            "../../"
+        ],
+        "types": []
     }
 }
