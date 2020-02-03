@@ -823,9 +823,8 @@ React.createElement(Memoized2, { bar: 'string' });
 const specialSfc1: React.ExoticComponent<any> = Memoized1;
 const functionComponent: React.FunctionComponent<any> = Memoized2;
 const sfc: React.SFC<any> = Memoized2;
-// this $ExpectError is failing on TypeScript@next
-// // $ExpectError Property '$$typeof' is missing in type
-// const specialSfc2: React.SpecialSFC = props => null;
+// $ExpectError Property '$$typeof' is missing in type
+const specialSfc2: React.SFC = props => null;
 
 const propsWithChildren: React.PropsWithChildren<Props> = {
     hello: "world",
