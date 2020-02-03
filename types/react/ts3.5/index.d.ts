@@ -1863,7 +1863,7 @@ declare namespace React {
         wrap?: string;
     }
 
-    interface AnchorHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface AnchorHTMLAttributes<T = HTMLAnchorElement> extends HTMLAttributes<T> {
         download?: any;
         href?: string;
         hrefLang?: string;
@@ -1876,9 +1876,9 @@ declare namespace React {
     }
 
     // tslint:disable-next-line:no-empty-interface
-    interface AudioHTMLAttributes<T> extends MediaHTMLAttributes<T> {}
+    interface AudioHTMLAttributes<T = HTMLAudioElement> extends MediaHTMLAttributes<T> {}
 
-    interface AreaHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface AreaHTMLAttributes<T = HTMLAreaElement> extends HTMLAttributes<T> {
         alt?: string;
         coords?: string;
         download?: any;
@@ -1890,16 +1890,16 @@ declare namespace React {
         target?: string;
     }
 
-    interface BaseHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface BaseHTMLAttributes<T = HTMLBaseElement> extends HTMLAttributes<T> {
         href?: string;
         target?: string;
     }
 
-    interface BlockquoteHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface BlockquoteHTMLAttributes<T = HTMLQuoteElement> extends HTMLAttributes<T> {
         cite?: string;
     }
 
-    interface ButtonHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface ButtonHTMLAttributes<T = HTMLButtonElement> extends HTMLAttributes<T> {
         autoFocus?: boolean;
         disabled?: boolean;
         form?: string;
@@ -1913,51 +1913,51 @@ declare namespace React {
         value?: string | string[] | number;
     }
 
-    interface CanvasHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface CanvasHTMLAttributes<T = HTMLCanvasElement> extends HTMLAttributes<T> {
         height?: number | string;
         width?: number | string;
     }
 
-    interface ColHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface ColHTMLAttributes<T = HTMLTableColElement> extends HTMLAttributes<T> {
         span?: number;
         width?: number | string;
     }
 
-    interface ColgroupHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface ColgroupHTMLAttributes<T = HTMLTableColElement> extends HTMLAttributes<T> {
         span?: number;
     }
 
-    interface DataHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface DataHTMLAttributes<T = HTMLDataElement> extends HTMLAttributes<T> {
         value?: string | string[] | number;
     }
 
-    interface DetailsHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface DetailsHTMLAttributes<T = HTMLDetailsElement> extends HTMLAttributes<T> {
         open?: boolean;
     }
 
-    interface DelHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface DelHTMLAttributes<T = HTMLModElement> extends HTMLAttributes<T> {
         cite?: string;
         dateTime?: string;
     }
 
-    interface DialogHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface DialogHTMLAttributes<T = HTMLDialogElement> extends HTMLAttributes<T> {
         open?: boolean;
     }
 
-    interface EmbedHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface EmbedHTMLAttributes<T = HTMLEmbedElement> extends HTMLAttributes<T> {
         height?: number | string;
         src?: string;
         type?: string;
         width?: number | string;
     }
 
-    interface FieldsetHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface FieldsetHTMLAttributes<T = HTMLFieldSetElement> extends HTMLAttributes<T> {
         disabled?: boolean;
         form?: string;
         name?: string;
     }
 
-    interface FormHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface FormHTMLAttributes<T = HTMLFormElement> extends HTMLAttributes<T> {
         acceptCharset?: string;
         action?: string;
         autoComplete?: string;
@@ -1968,11 +1968,11 @@ declare namespace React {
         target?: string;
     }
 
-    interface HtmlHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface HtmlHTMLAttributes<T = HTMLHtmlElement> extends HTMLAttributes<T> {
         manifest?: string;
     }
 
-    interface IframeHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface IframeHTMLAttributes<T = HTMLIFrameElement> extends HTMLAttributes<T> {
         allow?: string;
         allowFullScreen?: boolean;
         allowTransparency?: boolean;
@@ -1990,7 +1990,7 @@ declare namespace React {
         width?: number | string;
     }
 
-    interface ImgHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface ImgHTMLAttributes<T = HTMLImageElement> extends HTMLAttributes<T> {
         alt?: string;
         crossOrigin?: "anonymous" | "use-credentials" | "";
         decoding?: "async" | "auto" | "sync";
@@ -2002,12 +2002,12 @@ declare namespace React {
         width?: number | string;
     }
 
-    interface InsHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface InsHTMLAttributes<T = HTMLModElement> extends HTMLAttributes<T> {
         cite?: string;
         dateTime?: string;
     }
 
-    interface InputHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface InputHTMLAttributes<T = HTMLInputElement> extends HTMLAttributes<T> {
         accept?: string;
         alt?: string;
         autoComplete?: string;
@@ -2044,7 +2044,7 @@ declare namespace React {
         onChange?: ChangeEventHandler<T>;
     }
 
-    interface KeygenHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface KeygenHTMLAttributes<T = HTMLKeygenElement> extends HTMLAttributes<T> {
         autoFocus?: boolean;
         challenge?: string;
         disabled?: boolean;
@@ -2054,16 +2054,16 @@ declare namespace React {
         name?: string;
     }
 
-    interface LabelHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface LabelHTMLAttributes<T = HTMLLabelElement> extends HTMLAttributes<T> {
         form?: string;
         htmlFor?: string;
     }
 
-    interface LiHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface LiHTMLAttributes<T = HTMLLIElement> extends HTMLAttributes<T> {
         value?: string | string[] | number;
     }
 
-    interface LinkHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface LinkHTMLAttributes<T = HTMLLinkElement> extends HTMLAttributes<T> {
         as?: string;
         crossOrigin?: string;
         href?: string;
@@ -2075,15 +2075,15 @@ declare namespace React {
         type?: string;
     }
 
-    interface MapHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface MapHTMLAttributes<T = HTMLMapElement> extends HTMLAttributes<T> {
         name?: string;
     }
 
-    interface MenuHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface MenuHTMLAttributes<T = HTMLMenuElement> extends HTMLAttributes<T> {
         type?: string;
     }
 
-    interface MediaHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface MediaHTMLAttributes<T = HTMLMediaElement> extends HTMLAttributes<T> {
         autoPlay?: boolean;
         controls?: boolean;
         controlsList?: string;
@@ -2096,14 +2096,14 @@ declare namespace React {
         src?: string;
     }
 
-    interface MetaHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface MetaHTMLAttributes<T = HTMLMetaElement> extends HTMLAttributes<T> {
         charSet?: string;
         content?: string;
         httpEquiv?: string;
         name?: string;
     }
 
-    interface MeterHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface MeterHTMLAttributes<T = HTMLMeterElement> extends HTMLAttributes<T> {
         form?: string;
         high?: number;
         low?: number;
@@ -2113,11 +2113,11 @@ declare namespace React {
         value?: string | string[] | number;
     }
 
-    interface QuoteHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface QuoteHTMLAttributes<T = HTMLQuoteElement> extends HTMLAttributes<T> {
         cite?: string;
     }
 
-    interface ObjectHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface ObjectHTMLAttributes<T = HTMLObjectElement> extends HTMLAttributes<T> {
         classID?: string;
         data?: string;
         form?: string;
@@ -2129,41 +2129,41 @@ declare namespace React {
         wmode?: string;
     }
 
-    interface OlHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface OlHTMLAttributes<T = HTMLOListElement> extends HTMLAttributes<T> {
         reversed?: boolean;
         start?: number;
         type?: '1' | 'a' | 'A' | 'i' | 'I';
     }
 
-    interface OptgroupHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface OptgroupHTMLAttributes<T = HTMLOptGroupElement> extends HTMLAttributes<T> {
         disabled?: boolean;
         label?: string;
     }
 
-    interface OptionHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface OptionHTMLAttributes<T = HTMLOptionElement> extends HTMLAttributes<T> {
         disabled?: boolean;
         label?: string;
         selected?: boolean;
         value?: string | string[] | number;
     }
 
-    interface OutputHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface OutputHTMLAttributes<T = HTMLOutputElement> extends HTMLAttributes<T> {
         form?: string;
         htmlFor?: string;
         name?: string;
     }
 
-    interface ParamHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface ParamHTMLAttributes<T = HTMLParamElement> extends HTMLAttributes<T> {
         name?: string;
         value?: string | string[] | number;
     }
 
-    interface ProgressHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface ProgressHTMLAttributes<T = HTMLProgressElement> extends HTMLAttributes<T> {
         max?: number | string;
         value?: string | string[] | number;
     }
 
-    interface ScriptHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface ScriptHTMLAttributes<T = HTMLScriptElement> extends HTMLAttributes<T> {
         async?: boolean;
         charSet?: string;
         crossOrigin?: string;
@@ -2175,7 +2175,7 @@ declare namespace React {
         type?: string;
     }
 
-    interface SelectHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface SelectHTMLAttributes<T = HTMLSelectElement> extends HTMLAttributes<T> {
         autoComplete?: string;
         autoFocus?: boolean;
         disabled?: boolean;
@@ -2188,7 +2188,7 @@ declare namespace React {
         onChange?: ChangeEventHandler<T>;
     }
 
-    interface SourceHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface SourceHTMLAttributes<T = HTMLSourceElement> extends HTMLAttributes<T> {
         media?: string;
         sizes?: string;
         src?: string;
@@ -2196,20 +2196,20 @@ declare namespace React {
         type?: string;
     }
 
-    interface StyleHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface StyleHTMLAttributes<T = HTMLStyleElement> extends HTMLAttributes<T> {
         media?: string;
         nonce?: string;
         scoped?: boolean;
         type?: string;
     }
 
-    interface TableHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface TableHTMLAttributes<T = HTMLTableElement> extends HTMLAttributes<T> {
         cellPadding?: number | string;
         cellSpacing?: number | string;
         summary?: string;
     }
 
-    interface TextareaHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface TextareaHTMLAttributes<T = HTMLTextAreaElement> extends HTMLAttributes<T> {
         autoComplete?: string;
         autoFocus?: boolean;
         cols?: number;
@@ -2229,7 +2229,7 @@ declare namespace React {
         onChange?: ChangeEventHandler<T>;
     }
 
-    interface TdHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface TdHTMLAttributes<T = HTMLTableDataCellElement> extends HTMLAttributes<T> {
         align?: "left" | "center" | "right" | "justify" | "char";
         colSpan?: number;
         headers?: string;
@@ -2239,7 +2239,7 @@ declare namespace React {
         valign?: "top" | "middle" | "bottom" | "baseline";
     }
 
-    interface ThHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface ThHTMLAttributes<T = HTMLTableHeaderCellElement> extends HTMLAttributes<T> {
         align?: "left" | "center" | "right" | "justify" | "char";
         colSpan?: number;
         headers?: string;
@@ -2248,11 +2248,11 @@ declare namespace React {
         abbr?: string;
     }
 
-    interface TimeHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface TimeHTMLAttributes<T = HTMLTimeElement> extends HTMLAttributes<T> {
         dateTime?: string;
     }
 
-    interface TrackHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface TrackHTMLAttributes<T = HTMLTrackElement> extends HTMLAttributes<T> {
         default?: boolean;
         kind?: string;
         label?: string;
@@ -2260,7 +2260,7 @@ declare namespace React {
         srcLang?: string;
     }
 
-    interface VideoHTMLAttributes<T> extends MediaHTMLAttributes<T> {
+    interface VideoHTMLAttributes<T = HTMLVideoElement> extends MediaHTMLAttributes<T> {
         height?: number | string;
         playsInline?: boolean;
         poster?: string;
@@ -2276,7 +2276,7 @@ declare namespace React {
     //   - "number | string"
     //   - "string"
     //   - union of string literals
-    interface SVGAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    interface SVGAttributes<T = SVGElement> extends AriaAttributes, DOMAttributes<T> {
         // Attributes which also defined in HTMLAttributes
         // See comment in SVGDOMPropertyConfig.js
         className?: string;
@@ -2543,7 +2543,7 @@ declare namespace React {
         zoomAndPan?: string;
     }
 
-    interface WebViewHTMLAttributes<T> extends HTMLAttributes<T> {
+    interface WebViewHTMLAttributes<T = HTMLWebViewElement> extends HTMLAttributes<T> {
         allowFullScreen?: boolean;
         allowpopups?: boolean;
         autoFocus?: boolean;
