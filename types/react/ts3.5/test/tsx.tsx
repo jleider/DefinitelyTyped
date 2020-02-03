@@ -234,17 +234,15 @@ const Memoized6: React.NamedExoticComponent<object> = React.memo(props => null);
 // $ExpectError
 <Memoized6 foo/>;
 
-// NOTE: this test _requires_ TypeScript 3.1
-// It is passing, for what it's worth.
-// const Memoized7 = React.memo((() => {
-//     function HasDefaultProps(props: { test: boolean }) { return null; }
-//     HasDefaultProps.defaultProps = {
-//         test: true
-//     };
-//     return HasDefaultProps;
-// })());
-// // $ExpectType boolean
-// Memoized7.type.defaultProps.test;
+const Memoized7 = React.memo((() => {
+    function HasDefaultProps(props: { test: boolean }) { return null; }
+    HasDefaultProps.defaultProps = {
+        test: true
+    };
+    return HasDefaultProps;
+})());
+// $ExpectType boolean
+Memoized7.type.defaultProps.test;
 
 const LazyClassComponent = React.lazy(async () => ({ default: ComponentWithPropsAndState }));
 const LazyMemoized3 = React.lazy(async () => ({ default: Memoized3 }));
@@ -261,13 +259,21 @@ const LazyRefForwarding = React.lazy(async () => ({ default: Memoized4 }));
 // $ExpectError
 <React.Suspense/>;
 
+function isFoo(a: unknown): a is {foo: PropTypes.Validator<NonNullable<PropTypes.ReactNodeLike>>} {
+    return typeof a === "object" && a !== null && a.hasOwnProperty("foo");
+}
+
 class LegacyContext extends React.Component {
-    static contextTypes = { foo: PropTypes.node.isRequired };
+    static contextTypes: { foo: PropTypes.Validator<NonNullable<PropTypes.ReactNodeLike>> } = { foo: PropTypes.node.isRequired };
 
     render() {
-        // $ExpectType any
-        this.context.foo;
-        return this.context.foo;
+        // $ExpectType unknown
+        this.context;
+
+        if (isFoo(this.context)) {
+            // $ExpectTpe PropTypes.Validator<NonNullable<PropTypes.ReactNodeLike>>
+            return this.context.foo;
+        }
     }
 }
 

@@ -91,11 +91,7 @@ const context = React.createContext<Context>({ test: true });
 function useEveryHook(ref: React.Ref<{ id: number }>|undefined): () => boolean {
     const value: Context = React.useContext(context);
     const [, setState] = React.useState(() => 0);
-    // Bonus typescript@next version
-    // const [reducerState, dispatch] = React.useReducer(reducer, true as const, arg => arg && initialState);
-    // Compile error in typescript@3.0 but not in typescript@3.1.
-    // const [reducerState, dispatch] = React.useReducer(reducer, true as true, arg => arg && initialState);
-    const [reducerState, dispatch] = React.useReducer(reducer, true as true, (arg: true): AppState => arg && initialState);
+    const [reducerState, dispatch] = React.useReducer(reducer, true as const, arg => arg && initialState);
 
     const [, simpleDispatch] = React.useReducer(v => v + 1, 0);
 
@@ -123,7 +119,7 @@ function useEveryHook(ref: React.Ref<{ id: number }>|undefined): () => boolean {
 
     // |undefined convenience overload
     // with no contextual type or generic argument it should default to undefined only (not {} or unknown!)
-    // $ExpectType MutableRefObject<undefined>
+    // $ExpectType MutableRefObject<unknown>
     React.useRef();
     // $ExpectType MutableRefObject<number | undefined>
     React.useRef<number>();
@@ -230,5 +226,5 @@ const UsesEveryHook = React.forwardRef(
 const everyHookRef = React.createRef<{ id: number }>();
 <UsesEveryHook ref={everyHookRef}/>;
 
-// TODO: "implicit any" in typescript@3.0 but not in typescript@3.1
-// <UsesEveryHook ref={ref => { ref && console.log(ref.id); }}/>;
+const constVoid = (a: any): void => {};
+<UsesEveryHook ref={ref => { ref && constVoid(ref.id); }}/>;

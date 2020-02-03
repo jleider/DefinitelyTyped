@@ -442,8 +442,7 @@ declare namespace React {
          *
          * @see https://reactjs.org/docs/context.html
          */
-        // TODO (TypeScript 3.0): unknown
-        context: any;
+        context: unknown;
 
         constructor(props: Readonly<P>);
         /**
@@ -835,8 +834,7 @@ declare namespace React {
     // The identity check is done with the SameValue algorithm (Object.is), which is stricter than ===
     type ReducerStateWithoutAction<R extends ReducerWithoutAction<any>> =
         R extends ReducerWithoutAction<infer S> ? S : never;
-    // TODO (TypeScript 3.0): ReadonlyArray<unknown>
-    type DependencyList = ReadonlyArray<any>;
+    type DependencyList = ReadonlyArray<unknown>;
 
     // NOTE: callbacks are _only_ allowed to return either void, or a destructor.
     // The destructor is itself only allowed to return void.
@@ -971,8 +969,7 @@ declare namespace React {
      * @version 16.8.0
      * @see https://reactjs.org/docs/hooks-reference.html#useref
      */
-    // TODO (TypeScript 3.0): <T extends unknown>
-    function useRef<T>(initialValue: T): MutableRefObject<T>;
+    function useRef<T extends unknown>(initialValue: T): MutableRefObject<T>;
     // convenience overload for refs given as a ref prop as they typically start with a null value
     /**
      * `useRef` returns a mutable ref object whose `.current` property is initialized to the passed argument
@@ -987,8 +984,7 @@ declare namespace React {
      * @version 16.8.0
      * @see https://reactjs.org/docs/hooks-reference.html#useref
      */
-    // TODO (TypeScript 3.0): <T extends unknown>
-    function useRef<T>(initialValue: T|null): RefObject<T>;
+    function useRef<T extends unknown>(initialValue: T | null): RefObject<T>;
     // convenience overload for potentially undefined initialValue / call with 0 arguments
     // has a default to stop it from defaulting to {} instead
     /**
@@ -1001,8 +997,7 @@ declare namespace React {
      * @version 16.8.0
      * @see https://reactjs.org/docs/hooks-reference.html#useref
      */
-    // TODO (TypeScript 3.0): <T extends unknown>
-    function useRef<T = undefined>(): MutableRefObject<T | undefined>;
+    function useRef<T extends unknown>(): MutableRefObject<T | undefined>;
     /**
      * The signature is identical to `useEffect`, but it fires synchronously after all DOM mutations.
      * Use this to read layout from the DOM and synchronously re-render. Updates scheduled inside
@@ -1047,8 +1042,7 @@ declare namespace React {
      * @version 16.8.0
      * @see https://reactjs.org/docs/hooks-reference.html#usecallback
      */
-    // TODO (TypeScript 3.0): <T extends (...args: never[]) => unknown>
-    function useCallback<T extends (...args: any[]) => any>(callback: T, deps: DependencyList): T;
+    function useCallback<T extends (...args: never[]) => unknown>(callback: T, deps: DependencyList): T;
     /**
      * `useMemo` will only recompute the memoized value when one of the `deps` has changed.
      *
