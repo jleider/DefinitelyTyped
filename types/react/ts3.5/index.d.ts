@@ -146,7 +146,7 @@ declare namespace React {
     }
 
     // ReactSVG for ReactSVGElement
-    interface ReactSVGElement extends DOMElement<SVGAttributes<SVGElement>, SVGElement> {
+    interface ReactSVGElement extends DOMElement<SVGAttributes, SVGElement> {
         type: keyof ReactSVG;
     }
 
@@ -184,8 +184,8 @@ declare namespace React {
         (props?: ClassAttributes<T> & P | null, ...children: ReactNode[]): DetailedReactHTMLElement<P, T>;
     }
 
-    interface SVGFactory extends DOMFactory<SVGAttributes<SVGElement>, SVGElement> {
-        (props?: ClassAttributes<SVGElement> & SVGAttributes<SVGElement> | null, ...children: ReactNode[]): ReactSVGElement;
+    interface SVGFactory extends DOMFactory<SVGAttributes, SVGElement> {
+        (props?: ClassAttributes<SVGElement> & SVGAttributes | null, ...children: ReactNode[]): ReactSVGElement;
     }
 
     //
@@ -224,8 +224,8 @@ declare namespace React {
     // TODO: generalize this to everything in `keyof ReactHTML`, not just "input"
     function createElement(
         type: "input",
-        props?: InputHTMLAttributes<HTMLInputElement> & ClassAttributes<HTMLInputElement> | null,
-        ...children: ReactNode[]): DetailedReactHTMLElement<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+        props?: InputHTMLAttributes & ClassAttributes<HTMLInputElement> | null,
+        ...children: ReactNode[]): DetailedReactHTMLElement<InputHTMLAttributes, HTMLInputElement>;
     function createElement<P extends HTMLAttributes<T>, T extends HTMLElement>(
         type: keyof ReactHTML,
         props?: ClassAttributes<T> & P | null,
@@ -2568,45 +2568,45 @@ declare namespace React {
     // ----------------------------------------------------------------------
 
     interface ReactHTML {
-        a: DetailedHTMLFactory<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
+        a: DetailedHTMLFactory<AnchorHTMLAttributes, HTMLAnchorElement>;
         abbr: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         address: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        area: DetailedHTMLFactory<AreaHTMLAttributes<HTMLAreaElement>, HTMLAreaElement>;
+        area: DetailedHTMLFactory<AreaHTMLAttributes, HTMLAreaElement>;
         article: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         aside: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        audio: DetailedHTMLFactory<AudioHTMLAttributes<HTMLAudioElement>, HTMLAudioElement>;
+        audio: DetailedHTMLFactory<AudioHTMLAttributes, HTMLAudioElement>;
         b: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        base: DetailedHTMLFactory<BaseHTMLAttributes<HTMLBaseElement>, HTMLBaseElement>;
+        base: DetailedHTMLFactory<BaseHTMLAttributes, HTMLBaseElement>;
         bdi: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         bdo: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         big: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         blockquote: DetailedHTMLFactory<BlockquoteHTMLAttributes<HTMLElement>, HTMLElement>;
         body: DetailedHTMLFactory<HTMLAttributes<HTMLBodyElement>, HTMLBodyElement>;
         br: DetailedHTMLFactory<HTMLAttributes<HTMLBRElement>, HTMLBRElement>;
-        button: DetailedHTMLFactory<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
-        canvas: DetailedHTMLFactory<CanvasHTMLAttributes<HTMLCanvasElement>, HTMLCanvasElement>;
+        button: DetailedHTMLFactory<ButtonHTMLAttributes, HTMLButtonElement>;
+        canvas: DetailedHTMLFactory<CanvasHTMLAttributes, HTMLCanvasElement>;
         caption: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         cite: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         code: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        col: DetailedHTMLFactory<ColHTMLAttributes<HTMLTableColElement>, HTMLTableColElement>;
-        colgroup: DetailedHTMLFactory<ColgroupHTMLAttributes<HTMLTableColElement>, HTMLTableColElement>;
-        data: DetailedHTMLFactory<DataHTMLAttributes<HTMLDataElement>, HTMLDataElement>;
+        col: DetailedHTMLFactory<ColHTMLAttributes, HTMLTableColElement>;
+        colgroup: DetailedHTMLFactory<ColgroupHTMLAttributes, HTMLTableColElement>;
+        data: DetailedHTMLFactory<DataHTMLAttributes, HTMLDataElement>;
         datalist: DetailedHTMLFactory<HTMLAttributes<HTMLDataListElement>, HTMLDataListElement>;
         dd: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         del: DetailedHTMLFactory<DelHTMLAttributes<HTMLElement>, HTMLElement>;
         details: DetailedHTMLFactory<DetailsHTMLAttributes<HTMLElement>, HTMLElement>;
         dfn: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        dialog: DetailedHTMLFactory<DialogHTMLAttributes<HTMLDialogElement>, HTMLDialogElement>;
+        dialog: DetailedHTMLFactory<DialogHTMLAttributes, HTMLDialogElement>;
         div: DetailedHTMLFactory<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
         dl: DetailedHTMLFactory<HTMLAttributes<HTMLDListElement>, HTMLDListElement>;
         dt: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         em: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        embed: DetailedHTMLFactory<EmbedHTMLAttributes<HTMLEmbedElement>, HTMLEmbedElement>;
-        fieldset: DetailedHTMLFactory<FieldsetHTMLAttributes<HTMLFieldSetElement>, HTMLFieldSetElement>;
+        embed: DetailedHTMLFactory<EmbedHTMLAttributes, HTMLEmbedElement>;
+        fieldset: DetailedHTMLFactory<FieldsetHTMLAttributes, HTMLFieldSetElement>;
         figcaption: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         figure: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         footer: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        form: DetailedHTMLFactory<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>;
+        form: DetailedHTMLFactory<FormHTMLAttributes, HTMLFormElement>;
         h1: DetailedHTMLFactory<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
         h2: DetailedHTMLFactory<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
         h3: DetailedHTMLFactory<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
@@ -2617,72 +2617,72 @@ declare namespace React {
         header: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         hgroup: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         hr: DetailedHTMLFactory<HTMLAttributes<HTMLHRElement>, HTMLHRElement>;
-        html: DetailedHTMLFactory<HtmlHTMLAttributes<HTMLHtmlElement>, HTMLHtmlElement>;
+        html: DetailedHTMLFactory<HtmlHTMLAttributes, HTMLHtmlElement>;
         i: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        iframe: DetailedHTMLFactory<IframeHTMLAttributes<HTMLIFrameElement>, HTMLIFrameElement>;
-        img: DetailedHTMLFactory<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
-        input: DetailedHTMLFactory<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
-        ins: DetailedHTMLFactory<InsHTMLAttributes<HTMLModElement>, HTMLModElement>;
+        iframe: DetailedHTMLFactory<IframeHTMLAttributes, HTMLIFrameElement>;
+        img: DetailedHTMLFactory<ImgHTMLAttributes, HTMLImageElement>;
+        input: DetailedHTMLFactory<InputHTMLAttributes, HTMLInputElement>;
+        ins: DetailedHTMLFactory<InsHTMLAttributes, HTMLModElement>;
         kbd: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         keygen: DetailedHTMLFactory<KeygenHTMLAttributes<HTMLElement>, HTMLElement>;
-        label: DetailedHTMLFactory<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+        label: DetailedHTMLFactory<LabelHTMLAttributes, HTMLLabelElement>;
         legend: DetailedHTMLFactory<HTMLAttributes<HTMLLegendElement>, HTMLLegendElement>;
-        li: DetailedHTMLFactory<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>;
-        link: DetailedHTMLFactory<LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement>;
+        li: DetailedHTMLFactory<LiHTMLAttributes, HTMLLIElement>;
+        link: DetailedHTMLFactory<LinkHTMLAttributes, HTMLLinkElement>;
         main: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        map: DetailedHTMLFactory<MapHTMLAttributes<HTMLMapElement>, HTMLMapElement>;
+        map: DetailedHTMLFactory<MapHTMLAttributes, HTMLMapElement>;
         mark: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         menu: DetailedHTMLFactory<MenuHTMLAttributes<HTMLElement>, HTMLElement>;
         menuitem: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        meta: DetailedHTMLFactory<MetaHTMLAttributes<HTMLMetaElement>, HTMLMetaElement>;
+        meta: DetailedHTMLFactory<MetaHTMLAttributes, HTMLMetaElement>;
         meter: DetailedHTMLFactory<MeterHTMLAttributes<HTMLElement>, HTMLElement>;
         nav: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         noscript: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        object: DetailedHTMLFactory<ObjectHTMLAttributes<HTMLObjectElement>, HTMLObjectElement>;
-        ol: DetailedHTMLFactory<OlHTMLAttributes<HTMLOListElement>, HTMLOListElement>;
-        optgroup: DetailedHTMLFactory<OptgroupHTMLAttributes<HTMLOptGroupElement>, HTMLOptGroupElement>;
-        option: DetailedHTMLFactory<OptionHTMLAttributes<HTMLOptionElement>, HTMLOptionElement>;
+        object: DetailedHTMLFactory<ObjectHTMLAttributes, HTMLObjectElement>;
+        ol: DetailedHTMLFactory<OlHTMLAttributes, HTMLOListElement>;
+        optgroup: DetailedHTMLFactory<OptgroupHTMLAttributes, HTMLOptGroupElement>;
+        option: DetailedHTMLFactory<OptionHTMLAttributes, HTMLOptionElement>;
         output: DetailedHTMLFactory<OutputHTMLAttributes<HTMLElement>, HTMLElement>;
         p: DetailedHTMLFactory<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
-        param: DetailedHTMLFactory<ParamHTMLAttributes<HTMLParamElement>, HTMLParamElement>;
+        param: DetailedHTMLFactory<ParamHTMLAttributes, HTMLParamElement>;
         picture: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         pre: DetailedHTMLFactory<HTMLAttributes<HTMLPreElement>, HTMLPreElement>;
-        progress: DetailedHTMLFactory<ProgressHTMLAttributes<HTMLProgressElement>, HTMLProgressElement>;
-        q: DetailedHTMLFactory<QuoteHTMLAttributes<HTMLQuoteElement>, HTMLQuoteElement>;
+        progress: DetailedHTMLFactory<ProgressHTMLAttributes, HTMLProgressElement>;
+        q: DetailedHTMLFactory<QuoteHTMLAttributes, HTMLQuoteElement>;
         rp: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         rt: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         ruby: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         s: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         samp: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        script: DetailedHTMLFactory<ScriptHTMLAttributes<HTMLScriptElement>, HTMLScriptElement>;
+        script: DetailedHTMLFactory<ScriptHTMLAttributes, HTMLScriptElement>;
         section: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        select: DetailedHTMLFactory<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
+        select: DetailedHTMLFactory<SelectHTMLAttributes, HTMLSelectElement>;
         small: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        source: DetailedHTMLFactory<SourceHTMLAttributes<HTMLSourceElement>, HTMLSourceElement>;
+        source: DetailedHTMLFactory<SourceHTMLAttributes, HTMLSourceElement>;
         span: DetailedHTMLFactory<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>;
         strong: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        style: DetailedHTMLFactory<StyleHTMLAttributes<HTMLStyleElement>, HTMLStyleElement>;
+        style: DetailedHTMLFactory<StyleHTMLAttributes, HTMLStyleElement>;
         sub: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         summary: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         sup: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        table: DetailedHTMLFactory<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement>;
+        table: DetailedHTMLFactory<TableHTMLAttributes, HTMLTableElement>;
         template: DetailedHTMLFactory<HTMLAttributes<HTMLTemplateElement>, HTMLTemplateElement>;
         tbody: DetailedHTMLFactory<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>;
-        td: DetailedHTMLFactory<TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>;
-        textarea: DetailedHTMLFactory<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
+        td: DetailedHTMLFactory<TdHTMLAttributes, HTMLTableDataCellElement>;
+        textarea: DetailedHTMLFactory<TextareaHTMLAttributes, HTMLTextAreaElement>;
         tfoot: DetailedHTMLFactory<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>;
-        th: DetailedHTMLFactory<ThHTMLAttributes<HTMLTableHeaderCellElement>, HTMLTableHeaderCellElement>;
+        th: DetailedHTMLFactory<ThHTMLAttributes, HTMLTableHeaderCellElement>;
         thead: DetailedHTMLFactory<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>;
         time: DetailedHTMLFactory<TimeHTMLAttributes<HTMLElement>, HTMLElement>;
         title: DetailedHTMLFactory<HTMLAttributes<HTMLTitleElement>, HTMLTitleElement>;
         tr: DetailedHTMLFactory<HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>;
-        track: DetailedHTMLFactory<TrackHTMLAttributes<HTMLTrackElement>, HTMLTrackElement>;
+        track: DetailedHTMLFactory<TrackHTMLAttributes, HTMLTrackElement>;
         u: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
         ul: DetailedHTMLFactory<HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
         "var": DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        video: DetailedHTMLFactory<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>;
+        video: DetailedHTMLFactory<VideoHTMLAttributes, HTMLVideoElement>;
         wbr: DetailedHTMLFactory<HTMLAttributes<HTMLElement>, HTMLElement>;
-        webview: DetailedHTMLFactory<WebViewHTMLAttributes<HTMLWebViewElement>, HTMLWebViewElement>;
+        webview: DetailedHTMLFactory<WebViewHTMLAttributes, HTMLWebViewElement>;
     }
 
     interface ReactSVG {
@@ -2901,45 +2901,45 @@ declare global {
 
         interface IntrinsicElements {
             // HTML
-            a: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
+            a: React.DetailedHTMLProps<React.AnchorHTMLAttributes, HTMLAnchorElement>;
             abbr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             address: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            area: React.DetailedHTMLProps<React.AreaHTMLAttributes<HTMLAreaElement>, HTMLAreaElement>;
+            area: React.DetailedHTMLProps<React.AreaHTMLAttributes, HTMLAreaElement>;
             article: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             aside: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            audio: React.DetailedHTMLProps<React.AudioHTMLAttributes<HTMLAudioElement>, HTMLAudioElement>;
+            audio: React.DetailedHTMLProps<React.AudioHTMLAttributes, HTMLAudioElement>;
             b: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            base: React.DetailedHTMLProps<React.BaseHTMLAttributes<HTMLBaseElement>, HTMLBaseElement>;
+            base: React.DetailedHTMLProps<React.BaseHTMLAttributes, HTMLBaseElement>;
             bdi: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             bdo: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             big: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             blockquote: React.DetailedHTMLProps<React.BlockquoteHTMLAttributes<HTMLElement>, HTMLElement>;
             body: React.DetailedHTMLProps<React.HTMLAttributes<HTMLBodyElement>, HTMLBodyElement>;
             br: React.DetailedHTMLProps<React.HTMLAttributes<HTMLBRElement>, HTMLBRElement>;
-            button: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
-            canvas: React.DetailedHTMLProps<React.CanvasHTMLAttributes<HTMLCanvasElement>, HTMLCanvasElement>;
+            button: React.DetailedHTMLProps<React.ButtonHTMLAttributes, HTMLButtonElement>;
+            canvas: React.DetailedHTMLProps<React.CanvasHTMLAttributes, HTMLCanvasElement>;
             caption: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             cite: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             code: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            col: React.DetailedHTMLProps<React.ColHTMLAttributes<HTMLTableColElement>, HTMLTableColElement>;
-            colgroup: React.DetailedHTMLProps<React.ColgroupHTMLAttributes<HTMLTableColElement>, HTMLTableColElement>;
-            data: React.DetailedHTMLProps<React.DataHTMLAttributes<HTMLDataElement>, HTMLDataElement>;
+            col: React.DetailedHTMLProps<React.ColHTMLAttributes, HTMLTableColElement>;
+            colgroup: React.DetailedHTMLProps<React.ColgroupHTMLAttributes, HTMLTableColElement>;
+            data: React.DetailedHTMLProps<React.DataHTMLAttributes, HTMLDataElement>;
             datalist: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDataListElement>, HTMLDataListElement>;
             dd: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             del: React.DetailedHTMLProps<React.DelHTMLAttributes<HTMLElement>, HTMLElement>;
             details: React.DetailedHTMLProps<React.DetailsHTMLAttributes<HTMLElement>, HTMLElement>;
             dfn: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            dialog: React.DetailedHTMLProps<React.DialogHTMLAttributes<HTMLDialogElement>, HTMLDialogElement>;
+            dialog: React.DetailedHTMLProps<React.DialogHTMLAttributes, HTMLDialogElement>;
             div: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
             dl: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDListElement>, HTMLDListElement>;
             dt: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             em: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            embed: React.DetailedHTMLProps<React.EmbedHTMLAttributes<HTMLEmbedElement>, HTMLEmbedElement>;
-            fieldset: React.DetailedHTMLProps<React.FieldsetHTMLAttributes<HTMLFieldSetElement>, HTMLFieldSetElement>;
+            embed: React.DetailedHTMLProps<React.EmbedHTMLAttributes, HTMLEmbedElement>;
+            fieldset: React.DetailedHTMLProps<React.FieldsetHTMLAttributes, HTMLFieldSetElement>;
             figcaption: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             figure: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             footer: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            form: React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>;
+            form: React.DetailedHTMLProps<React.FormHTMLAttributes, HTMLFormElement>;
             h1: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
             h2: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
             h3: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
@@ -2950,73 +2950,73 @@ declare global {
             header: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             hgroup: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             hr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHRElement>, HTMLHRElement>;
-            html: React.DetailedHTMLProps<React.HtmlHTMLAttributes<HTMLHtmlElement>, HTMLHtmlElement>;
+            html: React.DetailedHTMLProps<React.HtmlHTMLAttributes, HTMLHtmlElement>;
             i: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            iframe: React.DetailedHTMLProps<React.IframeHTMLAttributes<HTMLIFrameElement>, HTMLIFrameElement>;
-            img: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
-            input: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
-            ins: React.DetailedHTMLProps<React.InsHTMLAttributes<HTMLModElement>, HTMLModElement>;
+            iframe: React.DetailedHTMLProps<React.IframeHTMLAttributes, HTMLIFrameElement>;
+            img: React.DetailedHTMLProps<React.ImgHTMLAttributes, HTMLImageElement>;
+            input: React.DetailedHTMLProps<React.InputHTMLAttributes, HTMLInputElement>;
+            ins: React.DetailedHTMLProps<React.InsHTMLAttributes, HTMLModElement>;
             kbd: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             keygen: React.DetailedHTMLProps<React.KeygenHTMLAttributes<HTMLElement>, HTMLElement>;
-            label: React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+            label: React.DetailedHTMLProps<React.LabelHTMLAttributes, HTMLLabelElement>;
             legend: React.DetailedHTMLProps<React.HTMLAttributes<HTMLLegendElement>, HTMLLegendElement>;
-            li: React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>;
-            link: React.DetailedHTMLProps<React.LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement>;
+            li: React.DetailedHTMLProps<React.LiHTMLAttributes, HTMLLIElement>;
+            link: React.DetailedHTMLProps<React.LinkHTMLAttributes, HTMLLinkElement>;
             main: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            map: React.DetailedHTMLProps<React.MapHTMLAttributes<HTMLMapElement>, HTMLMapElement>;
+            map: React.DetailedHTMLProps<React.MapHTMLAttributes, HTMLMapElement>;
             mark: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             menu: React.DetailedHTMLProps<React.MenuHTMLAttributes<HTMLElement>, HTMLElement>;
             menuitem: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            meta: React.DetailedHTMLProps<React.MetaHTMLAttributes<HTMLMetaElement>, HTMLMetaElement>;
+            meta: React.DetailedHTMLProps<React.MetaHTMLAttributes, HTMLMetaElement>;
             meter: React.DetailedHTMLProps<React.MeterHTMLAttributes<HTMLElement>, HTMLElement>;
             nav: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             noindex: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             noscript: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            object: React.DetailedHTMLProps<React.ObjectHTMLAttributes<HTMLObjectElement>, HTMLObjectElement>;
-            ol: React.DetailedHTMLProps<React.OlHTMLAttributes<HTMLOListElement>, HTMLOListElement>;
-            optgroup: React.DetailedHTMLProps<React.OptgroupHTMLAttributes<HTMLOptGroupElement>, HTMLOptGroupElement>;
-            option: React.DetailedHTMLProps<React.OptionHTMLAttributes<HTMLOptionElement>, HTMLOptionElement>;
+            object: React.DetailedHTMLProps<React.ObjectHTMLAttributes, HTMLObjectElement>;
+            ol: React.DetailedHTMLProps<React.OlHTMLAttributes, HTMLOListElement>;
+            optgroup: React.DetailedHTMLProps<React.OptgroupHTMLAttributes, HTMLOptGroupElement>;
+            option: React.DetailedHTMLProps<React.OptionHTMLAttributes, HTMLOptionElement>;
             output: React.DetailedHTMLProps<React.OutputHTMLAttributes<HTMLElement>, HTMLElement>;
             p: React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
-            param: React.DetailedHTMLProps<React.ParamHTMLAttributes<HTMLParamElement>, HTMLParamElement>;
+            param: React.DetailedHTMLProps<React.ParamHTMLAttributes, HTMLParamElement>;
             picture: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             pre: React.DetailedHTMLProps<React.HTMLAttributes<HTMLPreElement>, HTMLPreElement>;
-            progress: React.DetailedHTMLProps<React.ProgressHTMLAttributes<HTMLProgressElement>, HTMLProgressElement>;
-            q: React.DetailedHTMLProps<React.QuoteHTMLAttributes<HTMLQuoteElement>, HTMLQuoteElement>;
+            progress: React.DetailedHTMLProps<React.ProgressHTMLAttributes, HTMLProgressElement>;
+            q: React.DetailedHTMLProps<React.QuoteHTMLAttributes, HTMLQuoteElement>;
             rp: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             rt: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             ruby: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             s: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             samp: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            script: React.DetailedHTMLProps<React.ScriptHTMLAttributes<HTMLScriptElement>, HTMLScriptElement>;
+            script: React.DetailedHTMLProps<React.ScriptHTMLAttributes, HTMLScriptElement>;
             section: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            select: React.DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
+            select: React.DetailedHTMLProps<React.SelectHTMLAttributes, HTMLSelectElement>;
             small: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            source: React.DetailedHTMLProps<React.SourceHTMLAttributes<HTMLSourceElement>, HTMLSourceElement>;
+            source: React.DetailedHTMLProps<React.SourceHTMLAttributes, HTMLSourceElement>;
             span: React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>;
             strong: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            style: React.DetailedHTMLProps<React.StyleHTMLAttributes<HTMLStyleElement>, HTMLStyleElement>;
+            style: React.DetailedHTMLProps<React.StyleHTMLAttributes, HTMLStyleElement>;
             sub: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             summary: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             sup: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            table: React.DetailedHTMLProps<React.TableHTMLAttributes<HTMLTableElement>, HTMLTableElement>;
+            table: React.DetailedHTMLProps<React.TableHTMLAttributes, HTMLTableElement>;
             template: React.DetailedHTMLProps<React.HTMLAttributes<HTMLTemplateElement>, HTMLTemplateElement>;
             tbody: React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>;
-            td: React.DetailedHTMLProps<React.TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>;
-            textarea: React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
+            td: React.DetailedHTMLProps<React.TdHTMLAttributes, HTMLTableDataCellElement>;
+            textarea: React.DetailedHTMLProps<React.TextareaHTMLAttributes, HTMLTextAreaElement>;
             tfoot: React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>;
-            th: React.DetailedHTMLProps<React.ThHTMLAttributes<HTMLTableHeaderCellElement>, HTMLTableHeaderCellElement>;
+            th: React.DetailedHTMLProps<React.ThHTMLAttributes, HTMLTableHeaderCellElement>;
             thead: React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>;
             time: React.DetailedHTMLProps<React.TimeHTMLAttributes<HTMLElement>, HTMLElement>;
             title: React.DetailedHTMLProps<React.HTMLAttributes<HTMLTitleElement>, HTMLTitleElement>;
             tr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>;
-            track: React.DetailedHTMLProps<React.TrackHTMLAttributes<HTMLTrackElement>, HTMLTrackElement>;
+            track: React.DetailedHTMLProps<React.TrackHTMLAttributes, HTMLTrackElement>;
             u: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             ul: React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
             "var": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            video: React.DetailedHTMLProps<React.VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>;
+            video: React.DetailedHTMLProps<React.VideoHTMLAttributes, HTMLVideoElement>;
             wbr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            webview: React.DetailedHTMLProps<React.WebViewHTMLAttributes<HTMLWebViewElement>, HTMLWebViewElement>;
+            webview: React.DetailedHTMLProps<React.WebViewHTMLAttributes, HTMLWebViewElement>;
 
             // SVG
             svg: React.SVGProps<SVGSVGElement>;
